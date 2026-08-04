@@ -7,6 +7,16 @@ class PrintEditionItem {
         this.type = null;
     }
 
+    // fix(){
+    //     if (this.state * 1.5 < 0) {
+    //         this.state = 0;
+    //     } else if (this.state * 1.5 > 100) {
+    //         this.state = 100;
+    //     } else {
+    //         this.state = this.state * 1.5;
+    //     }
+    // }
+
     fix(){
         this.state = this.state * 1.5;
     }
