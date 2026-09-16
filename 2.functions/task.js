@@ -1,28 +1,60 @@
+// Задача 1, вариант 1
+
+// function getArrayParams(...arr) {
+//   let min = 0;
+//   let max = 0;
+//   let sum = 0;
+
+//   if (arr.length > 0) {
+//     max = Math.max(...arr);
+//     min = Math.min(...arr);
+//     sum = arr.reduce(
+//     (accumulator, currentValue) => accumulator + currentValue,
+//     sum,
+//     );
+
+//     let avg = sum / arr.length;
+//     avg = Number(avg.toFixed(2));
+
+//     return { min: min, max: max, avg: avg };
+
+//   } else {
+//     return 0;
+//   }
+// }
+
+// Задача 1, вариант 2
+
 function getArrayParams(...arr) {
-  let min = 0;
-  let max = 0;
+  let min = Infinity;
+  let max = -Infinity;
   let sum = 0;
 
-  if (arr.length > 0) {
-    max = Math.max(...arr);
-    min = Math.min(...arr);
-    sum = arr.reduce(
-    (accumulator, currentValue) => accumulator + currentValue,
-    sum,
-    );
-
-    let avg = sum / arr.length;
-    avg = Number(avg.toFixed(2));
-
-    return { min: min, max: max, avg: avg };
-
-  } else {
-    return 0;
+  if (arr.length === 0) {
+    return "Параметры не заданы";
   }
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i];
+    } 
+    
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+    
+    sum += arr[i]
+  }
+
+  let avg = Number((sum / arr.length).toFixed(2))
+  
+  return { min: min, max: max, avg: avg };
 }
 
-getArrayParams(1, 2, 3, -100, 10);
+getArrayParams();
 
+
+// Задача 2
 
 function summElementsWorker(...arr) {
   let sum = 0;
@@ -110,6 +142,8 @@ function averageEvenElementsWorker(...arr) {
 
 averageEvenElementsWorker(15, 97, 85, 64, 67, 10, 69, 40, 15, 35);
 
+
+// Задача 3
 
 function makeWork (arrOfArr, func) {
   let maxWorkerResult = -Infinity;
