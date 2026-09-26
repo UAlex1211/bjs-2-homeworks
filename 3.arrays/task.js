@@ -1,5 +1,33 @@
+// Задача 1, вариант 1
+
+// function compareArrays(arr1, arr2) {
+//   return arr1.length === arr2.length && arr1.every((element, index) => element === arr2[index]);
+// }
+
+// console.log(compareArrays([1, 2, 3], [1, 2, 3]));
+// console.log(compareArrays([1, 2], [1, 2, 3]));
+// console.log(compareArrays([1, 2, 3], [3, 2, 1]));
+// console.log(compareArrays([0, 1, 2], [0, 1]));
+// console.log(compareArrays([0, 1], [0, 1, 2]));
+// console.log(compareArrays([8, 9, 5, 4], [8, 9, 5, 4, 8, 3, 5]));
+
+// Задача 1, вариант 2
+
 function compareArrays(arr1, arr2) {
-  return arr1.length === arr2.length && arr1.every((element, index) => element === arr2[index]);
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+
+  for (let i = 0; i < arr1.length; i++) {
+    let compareResult = [];
+    compareResult.push(arr1[i] === arr2[i]);
+    
+    if (compareResult.includes(false)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
 
 console.log(compareArrays([1, 2, 3], [1, 2, 3]));
@@ -13,14 +41,32 @@ module.exports = {
   compareArrays
 }
 
+// function getUsersNamesInAgeRange(users, gender) {
+//   return users.filter(user => user.gender === gender).map(user => user.age).reduce((acc, user, index, arr)=> {
+//     acc += user;
+//     if(index === arr.length - 1){
+//       return acc / arr.length;
+//     }
+//     return acc;
+//   }, 0);
+// }
+
 function getUsersNamesInAgeRange(users, gender) {
-  return users.filter(user => user.gender === gender).map(user => user.age).reduce((acc, user, index, arr)=> {
-    acc += user;
-    if(index === arr.length - 1){
-      return acc / arr.length;
+  let genderCount = 0;
+  let genderAgeSum = 0;
+  
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].gender === gender) {
+      genderCount++;
+      genderAgeSum += users[i].age;
     }
-    return acc;
-  }, 0);
+  }
+
+  if (genderCount > 0) {
+    return genderAgeSum / genderCount;
+  }
+  
+  return 0;
 }
 
 const people = [
