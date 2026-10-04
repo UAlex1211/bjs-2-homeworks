@@ -1,4 +1,4 @@
-﻿// Задача 1﻿
+﻿// Задача 1
 
 function parseCount(value) {
   let parsedValue = Number.parseFloat(value);
@@ -12,7 +12,7 @@ function validateCount(value) {
   try {
     return parseCount(value);
   } catch (error) {
-    return error; // Возвращаем ошибку
+    return error;
   }
 }
 
@@ -51,6 +51,6 @@ function getTriangle(a, b, c) {
       get perimeter() {
         return "Ошибка! Треугольник не существует";
       }
-    };
+    }
   }
 }
